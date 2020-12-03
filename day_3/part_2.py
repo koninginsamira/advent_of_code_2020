@@ -1,11 +1,12 @@
 import math
 
+from day_3.functions import extract_slope
+
 TREE_SYMBOL = '#'
 
 
 def main():
-    with open("map.txt") as file:
-        slope = [[char for char in line] for line in file.readlines()]
+    slope = extract_slope()
 
     tree_counts = [
         count_trees(slope, 1, 1),

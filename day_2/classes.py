@@ -7,7 +7,9 @@ class Password(object):
         self.password = password
 
     def __str__(self):
-        return "Password \"" + self.password + "\" should contain \"" + self.required_symbol + "\" between " + str(self.min_length) + " to " + str(self.max_length) + " times."
+        return "Password \"" + self.password +\
+               "\" should contain \"" + self.required_symbol +\
+               "\" a minimum of " + str(self.min_length) + " and maximum of " + str(self.max_length) + " times."
 
     def import_match(self, matched_line):
         self.min_length = int(matched_line[0])
