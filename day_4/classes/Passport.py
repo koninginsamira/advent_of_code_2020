@@ -90,10 +90,12 @@ def check_height(height, *, required):
     if is_accepted(height, required=required):
         if height[-2:] == "cm":
             if not is_in_range(int(height[:-2]), MIN_CM_HEIGHT, MAX_CM_HEIGHT):
-                raise InvalidValue("A height can be at least " + str(MIN_CM_HEIGHT) + " and at most " + str(MAX_CM_HEIGHT) + ".")
+                raise InvalidValue("A height can be at least " + str(MIN_CM_HEIGHT) +
+                                   " and at most " + str(MAX_CM_HEIGHT) + ".")
         elif height[-2:] == "in":
             if not is_in_range(int(height[:-2]), MIN_IN_HEIGHT, MAX_IN_HEIGHT):
-                raise InvalidValue("A height can be at least " + str(MIN_CM_HEIGHT) + " and at most " + str(MAX_CM_HEIGHT) + ".")
+                raise InvalidValue("A height can be at least " + str(MIN_CM_HEIGHT) +
+                                   " and at most " + str(MAX_CM_HEIGHT) + ".")
         else:
             raise InvalidValue("A height must be proceeded by \"cm\" or \"in\".")
         return height
@@ -154,7 +156,9 @@ class Passport(object):
         self.country_id = check_country_id(country_id, required=False)
 
     def __str__(self):
-        return "Passport (ID: " + xstr(self.passport_id) + " and country ID: " + xstr(self.country_id) +\
-               ") from someone of " + xstr(self.height) + ", with " + xstr(self.hair_colour) + " hair and " + xstr(self.eye_colour) + " eyes. " +\
-               "This person was born in " + xstr(self.birth_year) + " and was issued this passport in " + xstr(self.issue_year) + ". " +\
+        return "Passport (ID: " + xstr(self.passport_id) + " and country ID: " + xstr(self.country_id) + ")" +\
+               "from someone of " + xstr(self.height) + "," +\
+               " with " + xstr(self.hair_colour) + " hair and " + xstr(self.eye_colour) + " eyes. " +\
+               "They were born in " + xstr(self.birth_year) +\
+               " and were issued this passport in " + xstr(self.issue_year) + ". " +\
                "The passport will expire in " + xstr(self.expiration_year) + "."
