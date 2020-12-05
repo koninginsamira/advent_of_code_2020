@@ -1,4 +1,3 @@
-# Class for character
 class Password(object):
     def __init__(self, min_length=None, max_length=None, required_symbol=None, password=None):
         self.min_length = min_length
